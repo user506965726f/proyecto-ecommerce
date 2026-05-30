@@ -1,0 +1,610 @@
+-- 1. Crear y seleccionar la base de datos
+USE master;
+GO
+
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'ecommerce')
+BEGIN
+    CREATE DATABASE ecommerce;
+END
+GO
+
+USE ecommerce;
+GO
+
+-- ─────────────────────────────────────────────────────────────
+-- 2. CREAR TABLAS
+-- ─────────────────────────────────────────────────────────────
+
+-- CLIENTES
+CREATE TABLE clientes (
+    id_cliente     INT          PRIMARY KEY IDENTITY(1,1),
+    nombre         NVARCHAR(50)  NOT NULL,
+    apellido       NVARCHAR(50)  NOT NULL,
+    correo         NVARCHAR(100) NOT NULL UNIQUE,
+    telefono       NVARCHAR(15),
+    ciudad         NVARCHAR(50),
+    fecha_registro DATE,
+    activo         NVARCHAR(2)   DEFAULT 'Sí'
+);
+GO
+
+-- CATEGORÍAS
+CREATE TABLE categorias (
+    id_categoria INT         PRIMARY KEY IDENTITY(1,1),
+    nombre       NVARCHAR(60) NOT NULL
+);
+GO
+
+-- PRODUCTOS
+CREATE TABLE productos (
+    id_producto   INT           PRIMARY KEY IDENTITY(1,1),
+    nombre        NVARCHAR(100)  NOT NULL,
+    id_categoria  INT           NOT NULL,
+    precio        DECIMAL(10,2) NOT NULL,
+    stock         INT           DEFAULT 0,
+    fecha_ingreso DATE,
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
+);
+GO
+
+-- PEDIDOS
+CREATE TABLE pedidos (
+    id_pedido    INT           PRIMARY KEY IDENTITY(1,1),
+    id_cliente   INT           NOT NULL,
+    fecha_pedido DATE          NOT NULL,
+    estado       NVARCHAR(20)  NOT NULL,
+    ciudad_envio NVARCHAR(50),
+    total        DECIMAL(12,2) DEFAULT 0.00,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+);
+GO
+
+-- DETALLE PEDIDOS
+CREATE TABLE detalle_pedidos (
+    id_detalle       INT           PRIMARY KEY IDENTITY(1,1),
+    id_pedido        INT           NOT NULL,
+    id_producto      INT           NOT NULL,
+    cantidad         INT           NOT NULL,
+    precio_unitario  DECIMAL(10,2) NOT NULL,
+    subtotal         DECIMAL(12,2) NOT NULL,
+    FOREIGN KEY (id_pedido)   REFERENCES pedidos(id_pedido),
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
+);
+GO
+
+-- PAGOS
+CREATE TABLE pagos (
+    id_pago     INT           PRIMARY KEY IDENTITY(1,1),
+    id_pedido   INT           NOT NULL,
+    metodo_pago NVARCHAR(40),
+    monto       DECIMAL(12,2),
+    estado_pago NVARCHAR(20),
+    fecha_pago  DATE,
+    FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido)
+);
+GO
+
+-- ─────────────────────────────────────────────────────────────
+-- 3. IMPORTAR DATOS DESDE CSV
+--    ⚠  Cambia 'C:\Ruta\A\Tus\Archivos\' por la ruta real
+--       donde guardaste los CSV en tu computadora.
+--    Ejemplo Windows : C:\Users\TuUsuario\Downloads\
+-- ─────────────────────────────────────────────────────────────
+
+-- Nota: Para usar BULK INSERT en SQL Server, el archivo CSV debe estar en el servidor SQL o en una ruta accesible.
+-- Si usas SQL Server Express local, la ruta puede ser: 'C:\Ruta\A\Tus\Archivos\categorias.csv'
+
+BULK INSERT categorias
+FROM 'D:\SQL\T1\categorias.csv'
+WITH (
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '\n',
+    FIRSTROW = 2, -- Salta la primera fila (encabezados)
+    CODEPAGE = '65001' -- Para caracteres UTF-8
+);
+GO
+
+BULK INSERT clientes
+FROM 'D:\SQL\T1\clientes.csv'
+WITH (
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '\n',
+    FIRSTROW = 2,
+    CODEPAGE = '65001'
+);
+GO
+
+BULK INSERT productos
+FROM 'D:\SQL\T1\productos.csv'
+WITH (
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '\n',
+    FIRSTROW = 2,
+    CODEPAGE = '65001'
+);
+GO
+
+BULK INSERT pedidos
+FROM 'D:\SQL\T1\pedidos.csv'
+WITH (
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '\n',
+    FIRSTROW = 2,
+    CODEPAGE = '65001'
+);
+GO
+
+BULK INSERT detalle_pedidos
+FROM 'D:\SQL\T1\detalle_pedidos.csv'
+WITH (
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '\n',
+    FIRSTROW = 2,
+    CODEPAGE = '65001'
+);
+GO
+
+BULK INSERT pagos
+FROM 'D:\SQL\T1\pagos.csv'
+WITH (
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '\n',
+    FIRSTROW = 2,
+    CODEPAGE = '65001'
+);
+GO
+
+-- ─────────────────────────────────────────────────────────────
+-- 4. VERIFICACIÓN RÁPIDA
+-- ─────────────────────────────────────────────────────────────
+SELECT 'clientes'        AS tabla, COUNT(*) AS filas FROM clientes
+UNION ALL
+SELECT 'categorias',               COUNT(*)          FROM categorias
+UNION ALL
+SELECT 'productos',                COUNT(*)          FROM productos
+UNION ALL
+SELECT 'pedidos',                  COUNT(*)          FROM pedidos
+UNION ALL
+SELECT 'detalle_pedidos',          COUNT(*)          FROM detalle_pedidos
+UNION ALL
+SELECT 'pagos',                    COUNT(*)          FROM pagos;
+GO
+
+--Tabla Auditoria
+CREATE TABLE audit_log(
+    id_audit INT PRIMARY KEY IDENTITY(1,1),
+    tabla_afectada NVARCHAR(50),
+    operacion NVARCHAR(20),
+    id_registro INT,
+    usuario_bd NVARCHAR(100),
+    fecha_hora DATETIME DEFAULT GETDATE(),
+    valores_anteriores NVARCHAR(MAX),
+    valores_nuevos NVARCHAR(MAX)
+);
+GO
+
+--Procedimientos Almacenados
+--SP-01 : Registrar pedido
+CREATE OR ALTER PROCEDURE sp_registrar_pedido
+    @id_cliente INT,
+    @fecha_pedido DATE,
+    @estado NVARCHAR(20),
+    @ciudad_envio NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO pedidos
+    (
+        id_cliente,
+        fecha_pedido,
+        estado,
+        ciudad_envio
+    )
+    VALUES
+    (
+        @id_cliente,
+        @fecha_pedido,
+        @estado,
+        @ciudad_envio
+    );
+END;
+GO
+
+--SP-02: Consultar cliente
+CREATE PROCEDURE sp_historial_cliente
+    @id_cliente INT
+AS
+BEGIN
+    SELECT *
+    FROM pedidos
+    WHERE id_cliente=@id_cliente;
+END;
+GO
+--Prueba
+EXEC sp_historial_cliente 1;
+--SP-03: Actualizar Stock
+CREATE PROCEDURE sp_actualizar_stock
+    @id_producto INT,
+    @cantidad INT
+AS
+BEGIN
+    UPDATE productos
+    SET stock = stock + @cantidad
+    WHERE id_producto=@id_producto;
+END;
+GO
+--SP-04: Reporte de Venta Por Categoria
+CREATE PROCEDURE sp_reporte_categoria
+AS
+BEGIN
+
+SELECT
+c.nombre Categoria,
+SUM(dp.cantidad) CantidadVendida,
+SUM(dp.subtotal) TotalVentas
+FROM categorias c
+INNER JOIN productos p
+ON c.id_categoria=p.id_categoria
+INNER JOIN detalle_pedidos dp
+ON p.id_producto=dp.id_producto
+GROUP BY c.nombre;
+
+END;
+GO
+--SP-05: Cancelar Pedido
+CREATE PROCEDURE sp_cancelar_pedido
+    @id_pedido INT
+AS
+BEGIN
+
+UPDATE pedidos
+SET estado='Cancelado'
+WHERE id_pedido=@id_pedido;
+
+END;
+GO
+
+--Funciones
+--FN-01: Calcular Descuento
+CREATE FUNCTION fn_calcular_descuento
+(
+ @cantidad INT
+)
+RETURNS DECIMAL(5,2)
+AS
+BEGIN
+
+DECLARE @desc DECIMAL(5,2)
+
+SET @desc=
+CASE
+WHEN @cantidad BETWEEN 3 AND 5 THEN 0.05
+WHEN @cantidad BETWEEN 6 AND 10 THEN 0.10
+WHEN @cantidad >10 THEN 0.15
+ELSE 0
+END
+
+RETURN @desc
+
+END
+GO
+--FN-02: Total Pedido
+CREATE FUNCTION fn_total_pedido
+(
+ @id_pedido INT
+)
+RETURNS DECIMAL(12,2)
+AS
+BEGIN
+
+DECLARE @total DECIMAL(12,2)
+
+SELECT @total=SUM(subtotal)
+FROM detalle_pedidos
+WHERE id_pedido=@id_pedido
+
+RETURN ISNULL(@total,0)
+
+END
+GO
+--FN-03: Stock Disponible
+CREATE FUNCTION fn_stock_producto
+(
+ @id_producto INT
+)
+RETURNS INT
+AS
+BEGIN
+
+DECLARE @stock INT
+
+SELECT @stock=stock
+FROM productos
+WHERE id_producto=@id_producto
+
+RETURN @stock
+
+END
+GO
+--FN-04: Cantidad Productos Vendidos
+CREATE FUNCTION fn_productos_vendidos
+(
+ @id_producto INT
+)
+RETURNS INT
+AS
+BEGIN
+
+DECLARE @cantidad INT
+
+SELECT @cantidad=SUM(cantidad)
+FROM detalle_pedidos
+WHERE id_producto=@id_producto
+
+RETURN ISNULL(@cantidad,0)
+
+END
+GO
+--FN-05: Ingresos Categoria
+CREATE FUNCTION fn_ingresos_categoria
+(
+ @id_categoria INT
+)
+RETURNS DECIMAL(12,2)
+AS
+BEGIN
+
+DECLARE @total DECIMAL(12,2)
+
+SELECT @total=SUM(dp.subtotal)
+FROM detalle_pedidos dp
+INNER JOIN productos p
+ON dp.id_producto=p.id_producto
+WHERE p.id_categoria=@id_categoria
+
+RETURN ISNULL(@total,0)
+
+END
+GO
+
+--Triggers
+--TR-01: Calcular Total Pedido
+CREATE TRIGGER trg_calcular_total_pedido
+ON detalle_pedidos
+AFTER INSERT
+AS
+BEGIN
+
+UPDATE pedidos
+SET total=
+(
+SELECT SUM(subtotal)
+FROM detalle_pedidos
+WHERE id_pedido=
+(
+SELECT TOP 1 id_pedido
+FROM inserted
+)
+)
+WHERE id_pedido=
+(
+SELECT TOP 1 id_pedido
+FROM inserted
+)
+
+END
+GO
+--TR-02: Auditoria Clientes
+CREATE TRIGGER trg_auditoria_clientes
+ON clientes
+AFTER UPDATE
+AS
+BEGIN
+
+INSERT INTO audit_log
+(
+tabla_afectada,
+operacion,
+usuario_bd
+)
+VALUES
+(
+'clientes',
+'UPDATE',
+SYSTEM_USER
+)
+
+END
+GO
+--TR-03: Auditoria Productos
+CREATE TRIGGER trg_auditoria_productos
+ON productos
+AFTER UPDATE
+AS
+BEGIN
+
+INSERT INTO audit_log
+(
+tabla_afectada,
+operacion,
+usuario_bd
+)
+VALUES
+(
+'productos',
+'UPDATE',
+SYSTEM_USER
+)
+
+END
+GO
+--TR-04: Auditoria Pedidos
+CREATE TRIGGER trg_auditoria_pedidos
+ON pedidos
+AFTER UPDATE
+AS
+BEGIN
+
+INSERT INTO audit_log
+(
+tabla_afectada,
+operacion,
+usuario_bd
+)
+VALUES
+(
+'pedidos',
+'UPDATE',
+SYSTEM_USER
+)
+
+END
+GO
+--TR-05: Auditoria Pagos
+CREATE TRIGGER trg_auditoria_pagos
+ON pagos
+AFTER UPDATE
+AS
+BEGIN
+
+INSERT INTO audit_log
+(
+tabla_afectada,
+operacion,
+usuario_bd
+)
+VALUES
+(
+'pagos',
+'UPDATE',
+SYSTEM_USER
+)
+
+END
+GO
+
+--Cursores
+--CUR-01: Actualizar precios
+DECLARE @id_producto INT
+
+DECLARE cur_precios CURSOR FOR
+SELECT id_producto
+FROM productos
+
+OPEN cur_precios
+
+FETCH NEXT FROM cur_precios INTO @id_producto
+
+WHILE @@FETCH_STATUS=0
+BEGIN
+
+UPDATE productos
+SET precio=precio*1.05
+WHERE id_producto=@id_producto
+
+FETCH NEXT FROM cur_precios INTO @id_producto
+
+END
+
+CLOSE cur_precios
+DEALLOCATE cur_precios
+--CUR-02: Productos con stock bajo
+DECLARE @producto NVARCHAR(100)
+
+DECLARE cur_stock CURSOR FOR
+SELECT nombre
+FROM productos
+WHERE stock<10
+--CUR-03: Clientes Registrados
+DECLARE @cliente NVARCHAR(100)
+
+DECLARE cur_clientes CURSOR FOR
+SELECT nombre
+FROM clientes
+--CUR-04: Pedidos Pendientes
+DECLARE @pedido INT
+
+DECLARE cur_pedidos CURSOR FOR
+SELECT id_pedido
+FROM pedidos
+WHERE estado='Pendiente'
+--CUR-05: Pagos Pendientes
+DECLARE @pago INT
+
+DECLARE cur_pagos CURSOR FOR
+SELECT id_pago
+FROM pagos
+WHERE estado_pago='Pendiente'
+
+--Transacciones
+--TX-01: Registrar pago
+BEGIN TRANSACTION
+
+INSERT INTO pedidos
+(
+id_cliente,
+fecha_pedido,
+estado,
+ciudad_envio
+)
+VALUES
+(
+1,
+GETDATE(),
+'Pendiente',
+'Lima'
+)
+
+COMMIT TRANSACTION
+--TX-02: Registrar pago
+BEGIN TRANSACTION
+
+INSERT INTO pagos
+(
+id_pedido,
+metodo_pago,
+monto,
+estado_pago
+)
+VALUES
+(
+1,
+'Tarjeta',
+100,
+'Pendiente'
+)
+
+COMMIT TRANSACTION
+--TX-03: Actualizar stock
+BEGIN TRANSACTION
+
+UPDATE productos
+SET stock=stock-1
+WHERE id_producto=1
+
+COMMIT TRANSACTION
+--TX-04: Cancelar Pedido
+BEGIN TRANSACTION
+
+UPDATE pedidos
+SET estado='Cancelado'
+WHERE id_pedido=1
+
+COMMIT TRANSACTION
+--TX-05: Registrar cliente
+BEGIN TRANSACTION
+
+INSERT INTO clientes
+(
+nombre,
+apellido,
+correo
+)
+VALUES
+(
+'Juan',
+'Perez',
+'juan@gmail.com'
+)
+
+COMMIT TRANSACTION
+
