@@ -1,0 +1,138 @@
+use DATAMART_ECOMERCE
+go
+
+--1. LIMPIEZA DE TABLAS
+
+delete from fact_ventas
+if @@ROWCOUNT <> 0	
+	DBCC CHECKIDENT ('fact_ventas', RESEED, 0)
+go
+delete from dim_cliente
+if @@ROWCOUNT <> 0	
+	DBCC CHECKIDENT ('dim_cliente', RESEED, 0)
+go
+delete from dim_producto
+if @@ROWCOUNT <> 0	
+	DBCC CHECKIDENT ('dim_producto', RESEED, 0)
+go
+delete from dim_categoria
+if @@ROWCOUNT <> 0	
+	DBCC CHECKIDENT ('dim_categoria', RESEED, 0)
+go
+delete from dim_tiempo
+if @@ROWCOUNT <> 0	
+	DBCC CHECKIDENT ('dim_tiempo', RESEED, 0)
+go
+delete from dim_pago
+if @@ROWCOUNT <> 0	
+	DBCC CHECKIDENT ('dim_pago', RESEED, 0)
+go
+
+--2. CARGAR DIMENSIONES
+
+--2.1 Dimensión Cliente
+insert into dim_cliente(id_cliente,nombre_completo,ciudad,estado_cliente)
+select 
+	id_cliente,
+	CONCAT(nombre,' ',apellido) as nombre_completo,
+	ciudad,
+	activo as estado_cliente
+from ecommerce.dbo.clientes
+go
+
+--2.2 Dimensión Categoría
+insert into dim_categoria(id_categoria,nombre_categoria)
+select 
+	id_categoria,
+	nombre
+from ecommerce.dbo.categorias
+go
+
+--2.3 Dimensión Producto
+insert into dim_producto(id_producto,nombre,descripcion)
+select 
+	id_producto,
+	nombre,
+	'Producto de e-commerce' as descripcion
+from ecommerce.dbo.productos
+go
+
+--2.4 Dimensión Tiempo
+declare @inicio DATE, @fin DATE
+select @inicio = MIN(fecha_pedido), @fin = MAX(fecha_pedido) 
+from ecommerce.dbo.pedidos
+
+while(@inicio <= @fin)
+begin
+	insert into dim_tiempo(
+			fecha,año,trimestre,mes,mes_nombre,semana,dia,dia_semana
+	)
+	values(
+		@inicio,
+		YEAR(@inicio),
+		DATEPART(QUARTER,@inicio),
+		MONTH(@inicio),
+		case MONTH(@inicio)
+			when 1 then 'Enero' when 2 then 'Febrero' when 3 then 'Marzo'
+			when 4 then 'Abril' when 5 then 'Mayo' when 6 then 'Junio'
+			when 7 then 'Julio' when 8 then 'Agosto' when 9 then 'Septiembre'
+			when 10 then 'Octubre' when 11 then 'Noviembre' when 12 then 'Diciembre'
+		end,
+		DATEPART(WEEK,@inicio),
+		DAY(@inicio),
+		case DATEPART(WEEKDAY,@inicio)
+			when 1 then 'Domingo' when 2 then 'Lunes' when 3 then 'Martes'
+			when 4 then 'Miércoles' when 5 then 'Jueves' when 6 then 'Viernes'
+			when 7 then 'Sábado'
+		end
+	)
+	set @inicio = DATEADD(DAY,1,@inicio)
+end
+go
+
+--2.5 Dimensión Pago
+insert into dim_pago(id_pago,metodo_pago,estado_pago)
+select 
+	id_pago,
+	metodo_pago,
+	estado_pago
+from ecommerce.dbo.pagos
+go
+
+--3. CARGAR HECHOS
+insert into fact_ventas(
+	pk_tiempo, pk_producto, pk_cliente, pk_pago, pk_categoria,
+    cantidad, precio_unitario, subtotal_linea, total
+)
+select 
+	dt.pk_tiempo,
+    dp.pk_producto,
+    dc.pk_cliente,
+    ISNULL(dpag.pk_pago, 1) AS pk_pago,
+    dcat.pk_categoria,
+    det.cantidad,
+    det.precio_unitario,
+    det.subtotal, -- subtotal_linea = cantidad * precio_unitario
+    det.subtotal AS total
+FROM ecommerce.dbo.detalle_pedidos det
+JOIN ecommerce.dbo.pedidos p         ON det.id_pedido = p.id_pedido
+JOIN ecommerce.dbo.clientes c        ON p.id_cliente = c.id_cliente
+JOIN ecommerce.dbo.productos prod    ON det.id_producto = prod.id_producto
+JOIN ecommerce.dbo.categorias cat    ON prod.id_categoria = cat.id_categoria
+LEFT JOIN ecommerce.dbo.pagos pag    ON p.id_pedido = pag.id_pedido
+JOIN dim_tiempo    dt   ON p.fecha_pedido = dt.fecha
+JOIN dim_producto  dp   ON prod.id_producto = dp.id_producto
+JOIN dim_cliente   dc   ON c.id_cliente = dc.id_cliente
+JOIN dim_categoria dcat ON cat.id_categoria = dcat.id_categoria
+LEFT JOIN dim_pago  dpag ON pag.id_pago = dpag.id_pago
+go 
+	
+--4. Verificación
+select 'dim_cliente'   as tabla, count(*) as filas from dim_cliente   union all
+select 'dim_producto',            count(*)          from dim_producto  union all
+select 'dim_categoria',           count(*)          from dim_categoria union all
+select 'dim_tiempo',              count(*)          from dim_tiempo    union all
+select 'dim_pago',                count(*)          from dim_pago      union all
+select 'fact_ventas',             count(*)          from fact_ventas
+go
+
