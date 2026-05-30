@@ -1,0 +1,501 @@
+id_pago,id_pedido,metodo_pago,monto,estado_pago,fecha_pago
+1,89,Yape,856.35,Completado,2022-07-03
+2,103,Efectivo contra entrega,12309.32,Completado,2023-02-17
+3,81,Yape,3170.65,Completado,2024-03-20
+4,311,Efectivo contra entrega,2274.7,Reembolsado,2024-11-03
+5,252,Efectivo contra entrega,11380.68,Completado,2022-08-22
+6,52,Efectivo contra entrega,0.0,Reembolsado,2023-01-06
+7,407,Tarjeta de Débito,9355.1,Completado,2024-11-07
+8,213,Tarjeta de Crédito,14213.22,Reembolsado,2025-01-01
+9,483,Efectivo contra entrega,0.0,Reembolsado,2023-08-09
+10,253,Tarjeta de Crédito,8017.51,Reembolsado,2022-12-19
+11,156,Yape,0.0,Completado,2024-10-23
+12,121,Yape,18805.41,Completado,2024-05-26
+13,108,Plin,0.0,Pendiente,2022-07-23
+14,286,Efectivo contra entrega,3472.27,Completado,2022-02-05
+15,25,Plin,6396.03,Completado,2022-11-28
+16,10,Efectivo contra entrega,0.0,Reembolsado,2023-03-24
+17,184,Yape,0.0,Completado,2022-05-19
+18,452,Yape,0.0,Pendiente,2023-11-20
+19,134,Transferencia Bancaria,13048.35,Completado,2023-04-21
+20,183,Tarjeta de Débito,10895.17,Completado,2023-09-07
+21,347,Efectivo contra entrega,16489.98,Completado,2023-10-27
+22,82,Transferencia Bancaria,0.0,Pendiente,2024-09-04
+23,90,Efectivo contra entrega,0.0,Completado,2024-01-22
+24,424,Tarjeta de Crédito,10881.26,Completado,2024-07-27
+25,441,Tarjeta de Crédito,2148.38,Fallido,2022-01-29
+26,458,Tarjeta de Débito,3438.51,Completado,2024-09-09
+27,258,Tarjeta de Crédito,273.28,Completado,2022-11-23
+28,17,Tarjeta de Débito,0.0,Completado,2022-05-03
+29,414,Plin,1661.27,Completado,2022-12-28
+30,33,Tarjeta de Débito,8376.76,Completado,2023-10-24
+31,173,Efectivo contra entrega,10505.39,Completado,2024-10-07
+32,221,Efectivo contra entrega,480.07,Completado,2024-09-17
+33,59,Tarjeta de Crédito,9728.4,Reembolsado,2024-03-27
+34,317,Transferencia Bancaria,1170.15,Completado,2022-03-09
+35,117,Transferencia Bancaria,0.0,Completado,2023-07-31
+36,62,Yape,9934.24,Completado,2023-03-19
+37,288,Efectivo contra entrega,2398.48,Completado,2022-10-09
+38,115,Yape,2441.36,Completado,2023-07-21
+39,250,Tarjeta de Crédito,2170.25,Completado,2023-11-10
+40,133,Tarjeta de Crédito,0.0,Fallido,2023-07-03
+41,175,Efectivo contra entrega,4128.86,Completado,2022-01-14
+42,402,Tarjeta de Crédito,0.0,Reembolsado,2022-12-27
+43,182,Tarjeta de Débito,0.0,Completado,2024-01-09
+44,394,Efectivo contra entrega,3228.9,Completado,2022-12-04
+45,24,Yape,0.0,Completado,2023-12-14
+46,395,Plin,3144.64,Completado,2022-03-25
+47,450,Transferencia Bancaria,2334.64,Completado,2023-07-09
+48,487,Tarjeta de Débito,14135.21,Reembolsado,2022-03-16
+49,137,Transferencia Bancaria,1412.72,Completado,2024-02-05
+50,78,Tarjeta de Crédito,619.68,Completado,2022-11-11
+51,437,Tarjeta de Crédito,261.12,Completado,2024-05-08
+52,354,Tarjeta de Crédito,6352.61,Reembolsado,2024-06-23
+53,448,Yape,1901.91,Completado,2022-01-03
+54,264,Tarjeta de Débito,10614.31,Completado,2023-10-29
+55,310,Tarjeta de Crédito,0.0,Completado,2022-02-28
+56,343,Tarjeta de Crédito,0.0,Completado,2023-01-17
+57,54,Plin,0.0,Completado,2023-12-23
+58,362,Yape,0.0,Completado,2024-09-17
+59,26,Tarjeta de Débito,416.05,Fallido,2023-09-01
+60,225,Yape,2454.2,Completado,2022-09-29
+61,410,Plin,0.0,Completado,2024-09-01
+62,235,Efectivo contra entrega,717.53,Reembolsado,2024-11-20
+63,431,Yape,11953.3,Completado,2023-04-16
+64,387,Tarjeta de Crédito,835.14,Completado,2023-03-29
+65,57,Plin,0.0,Completado,2023-03-15
+66,55,Plin,0.0,Completado,2024-02-02
+67,401,Transferencia Bancaria,8110.46,Completado,2023-07-11
+68,313,Tarjeta de Débito,0.0,Completado,2023-06-14
+69,433,Tarjeta de Crédito,5125.12,Completado,2024-08-27
+70,434,Plin,21244.13,Reembolsado,2024-05-29
+71,53,Transferencia Bancaria,14994.34,Completado,2022-11-22
+72,422,Tarjeta de Débito,0.0,Completado,2024-06-12
+73,464,Transferencia Bancaria,0.0,Completado,2024-12-29
+74,22,Plin,4969.04,Completado,2024-06-15
+75,260,Tarjeta de Crédito,7938.6,Completado,2024-06-02
+76,444,Yape,8504.44,Completado,2022-11-28
+77,86,Efectivo contra entrega,2934.21,Reembolsado,2024-03-21
+78,323,Transferencia Bancaria,11447.34,Completado,2024-09-02
+79,61,Efectivo contra entrega,13813.83,Completado,2023-09-14
+80,106,Plin,4853.34,Completado,2024-01-11
+81,186,Plin,5466.03,Completado,2023-07-19
+82,498,Tarjeta de Débito,10738.55,Completado,2023-03-30
+83,373,Yape,3989.94,Completado,2023-05-04
+84,150,Efectivo contra entrega,0.0,Completado,2024-11-23
+85,363,Yape,9586.0,Completado,2024-01-07
+86,227,Yape,0.0,Completado,2022-01-10
+87,391,Efectivo contra entrega,12972.52,Completado,2023-03-15
+88,426,Tarjeta de Débito,10387.24,Completado,2022-05-06
+89,256,Transferencia Bancaria,5387.08,Pendiente,2023-09-11
+90,376,Tarjeta de Crédito,0.0,Completado,2023-11-28
+91,51,Transferencia Bancaria,0.0,Completado,2024-05-25
+92,79,Tarjeta de Crédito,12536.87,Reembolsado,2024-07-03
+93,332,Tarjeta de Débito,0.0,Completado,2024-08-03
+94,187,Transferencia Bancaria,956.56,Completado,2023-03-07
+95,172,Plin,0.0,Completado,2024-10-20
+96,71,Tarjeta de Crédito,0.0,Completado,2024-02-22
+97,63,Tarjeta de Crédito,4828.08,Pendiente,2023-07-22
+98,104,Yape,10620.69,Completado,2022-04-20
+99,476,Transferencia Bancaria,1377.31,Reembolsado,2023-10-31
+100,493,Yape,0.0,Completado,2024-08-30
+101,457,Efectivo contra entrega,0.0,Completado,2022-10-13
+102,400,Efectivo contra entrega,856.05,Completado,2024-09-04
+103,4,Tarjeta de Débito,1926.57,Completado,2023-05-23
+104,126,Plin,3202.65,Completado,2022-10-26
+105,243,Transferencia Bancaria,1917.2,Completado,2023-02-12
+106,460,Tarjeta de Crédito,383.28,Completado,2023-10-20
+107,147,Plin,0.0,Completado,2022-03-21
+108,259,Transferencia Bancaria,7414.32,Completado,2023-11-30
+109,88,Tarjeta de Débito,6577.2,Fallido,2024-06-01
+110,44,Tarjeta de Débito,8500.84,Completado,2022-03-28
+111,492,Efectivo contra entrega,4870.95,Completado,2024-11-08
+112,191,Plin,0.0,Completado,2023-06-17
+113,367,Yape,0.0,Completado,2023-08-19
+114,454,Transferencia Bancaria,7113.12,Completado,2024-01-20
+115,438,Efectivo contra entrega,0.0,Reembolsado,2024-11-01
+116,185,Transferencia Bancaria,8522.8,Completado,2022-05-16
+117,423,Tarjeta de Débito,6061.98,Completado,2024-07-20
+118,341,Yape,0.0,Fallido,2022-09-04
+119,397,Tarjeta de Débito,0.0,Completado,2024-09-27
+120,451,Plin,8055.44,Completado,2023-03-04
+121,272,Transferencia Bancaria,2376.52,Completado,2023-10-13
+122,216,Tarjeta de Crédito,389.0,Completado,2022-03-07
+123,466,Tarjeta de Débito,5623.56,Completado,2022-05-17
+124,405,Plin,8331.18,Completado,2023-05-01
+125,220,Yape,6586.59,Completado,2022-07-12
+126,212,Transferencia Bancaria,4446.4,Completado,2022-03-08
+127,210,Transferencia Bancaria,0.0,Completado,2023-11-13
+128,439,Yape,3699.05,Completado,2024-09-09
+129,265,Transferencia Bancaria,8886.04,Reembolsado,2022-12-27
+130,350,Plin,0.0,Completado,2023-06-29
+131,420,Transferencia Bancaria,0.0,Reembolsado,2023-02-14
+132,16,Tarjeta de Crédito,1641.65,Completado,2023-11-25
+133,415,Plin,16072.78,Completado,2024-11-20
+134,75,Efectivo contra entrega,592.36,Completado,2022-01-25
+135,6,Efectivo contra entrega,0.0,Completado,2023-03-05
+136,372,Tarjeta de Débito,20332.41,Completado,2023-02-02
+137,36,Efectivo contra entrega,0.0,Completado,2024-09-22
+138,472,Tarjeta de Crédito,311.2,Completado,2022-09-30
+139,174,Transferencia Bancaria,5207.25,Completado,2024-09-03
+140,162,Yape,0.0,Completado,2022-08-25
+141,206,Yape,20068.43,Completado,2022-10-06
+142,85,Yape,0.0,Completado,2022-10-05
+143,223,Yape,2669.71,Completado,2024-12-09
+144,32,Efectivo contra entrega,0.0,Completado,2022-11-15
+145,202,Tarjeta de Crédito,8654.65,Completado,2022-01-15
+146,19,Yape,12441.18,Completado,2023-12-14
+147,339,Tarjeta de Débito,15105.6,Completado,2022-04-30
+148,329,Transferencia Bancaria,600.16,Completado,2023-12-26
+149,381,Transferencia Bancaria,11908.55,Reembolsado,2022-02-10
+150,295,Yape,1741.34,Completado,2024-01-22
+151,30,Transferencia Bancaria,0.0,Completado,2022-05-12
+152,324,Efectivo contra entrega,0.0,Completado,2024-12-29
+153,449,Transferencia Bancaria,10738.55,Completado,2023-11-15
+154,267,Tarjeta de Débito,3692.2,Completado,2024-02-16
+155,152,Plin,0.0,Completado,2023-09-18
+156,215,Yape,2278.44,Completado,2023-09-27
+157,360,Tarjeta de Crédito,349.79,Completado,2024-10-04
+158,284,Yape,0.0,Completado,2024-05-05
+159,490,Efectivo contra entrega,9506.08,Fallido,2024-04-11
+160,161,Tarjeta de Débito,14105.88,Completado,2022-12-02
+161,177,Tarjeta de Crédito,3758.0,Completado,2023-12-17
+162,5,Tarjeta de Crédito,4905.68,Completado,2024-08-04
+163,144,Yape,0.0,Completado,2024-05-25
+164,271,Transferencia Bancaria,8838.0,Completado,2024-07-05
+165,432,Yape,4288.55,Completado,2024-09-28
+166,76,Tarjeta de Débito,0.0,Completado,2022-04-21
+167,207,Yape,0.0,Completado,2023-11-21
+168,229,Tarjeta de Débito,0.0,Completado,2022-07-31
+169,330,Efectivo contra entrega,1006.34,Completado,2023-07-16
+170,421,Tarjeta de Débito,2074.59,Fallido,2024-08-23
+171,279,Yape,0.0,Completado,2022-03-07
+172,320,Tarjeta de Débito,5045.54,Completado,2022-12-12
+173,467,Plin,0.0,Completado,2022-06-30
+174,368,Transferencia Bancaria,13131.5,Completado,2022-03-25
+175,340,Yape,0.0,Completado,2023-03-22
+176,208,Plin,1712.78,Completado,2022-04-28
+177,102,Plin,5844.64,Fallido,2022-04-02
+178,155,Yape,2902.34,Completado,2024-08-10
+179,416,Transferencia Bancaria,9867.65,Completado,2024-06-29
+180,355,Transferencia Bancaria,0.0,Completado,2022-06-02
+181,276,Yape,2102.04,Completado,2023-08-28
+182,406,Yape,1587.56,Completado,2022-07-16
+183,200,Yape,0.0,Completado,2023-08-03
+184,65,Efectivo contra entrega,4829.33,Completado,2022-11-17
+185,480,Efectivo contra entrega,0.0,Reembolsado,2024-09-21
+186,277,Tarjeta de Débito,0.0,Completado,2022-04-20
+187,146,Efectivo contra entrega,3628.16,Reembolsado,2024-12-13
+188,110,Yape,2426.64,Completado,2024-07-27
+189,48,Transferencia Bancaria,4759.68,Completado,2023-05-25
+190,262,Plin,2945.44,Completado,2022-06-09
+191,283,Yape,0.0,Completado,2024-02-29
+192,160,Tarjeta de Débito,2174.84,Completado,2023-10-28
+193,316,Tarjeta de Crédito,0.0,Completado,2023-05-02
+194,455,Yape,0.0,Completado,2024-01-24
+195,479,Tarjeta de Débito,5594.11,Completado,2023-09-23
+196,12,Transferencia Bancaria,0.0,Completado,2023-07-20
+197,15,Transferencia Bancaria,10380.77,Completado,2022-07-04
+198,315,Yape,10653.5,Completado,2024-07-06
+199,461,Plin,0.0,Completado,2024-05-16
+200,124,Tarjeta de Débito,1007.45,Completado,2023-02-22
+201,342,Tarjeta de Débito,2394.93,Completado,2024-02-11
+202,217,Plin,5804.68,Completado,2023-05-02
+203,393,Tarjeta de Crédito,2870.12,Completado,2024-05-02
+204,436,Tarjeta de Débito,4660.72,Completado,2022-11-05
+205,31,Efectivo contra entrega,0.0,Completado,2024-03-04
+206,389,Transferencia Bancaria,0.0,Completado,2024-04-06
+207,302,Efectivo contra entrega,4349.13,Completado,2023-10-02
+208,413,Efectivo contra entrega,0.0,Pendiente,2024-07-20
+209,475,Yape,11917.71,Completado,2023-11-19
+210,64,Tarjeta de Crédito,9701.95,Completado,2022-11-16
+211,486,Yape,6936.18,Completado,2024-01-28
+212,291,Transferencia Bancaria,3326.88,Reembolsado,2024-05-19
+213,230,Tarjeta de Crédito,753.92,Pendiente,2023-10-03
+214,153,Tarjeta de Crédito,3906.28,Completado,2022-12-07
+215,3,Efectivo contra entrega,6614.34,Completado,2023-05-26
+216,233,Tarjeta de Crédito,2509.35,Completado,2022-08-30
+217,443,Efectivo contra entrega,0.0,Completado,2022-07-06
+218,489,Plin,0.0,Completado,2024-12-31
+219,274,Transferencia Bancaria,2476.94,Completado,2023-12-09
+220,120,Plin,5061.52,Completado,2023-04-12
+221,180,Yape,11022.32,Completado,2023-08-09
+222,154,Tarjeta de Crédito,3502.42,Completado,2022-04-23
+223,314,Tarjeta de Crédito,159.57,Completado,2022-12-25
+224,72,Tarjeta de Crédito,8632.92,Completado,2023-11-18
+225,194,Tarjeta de Débito,8256.08,Completado,2024-10-08
+226,308,Efectivo contra entrega,0.0,Completado,2022-05-08
+227,127,Tarjeta de Crédito,3647.76,Fallido,2022-11-20
+228,425,Transferencia Bancaria,0.0,Completado,2023-07-10
+229,168,Tarjeta de Crédito,0.0,Completado,2022-04-19
+230,365,Transferencia Bancaria,0.0,Reembolsado,2022-07-06
+231,99,Efectivo contra entrega,0.0,Completado,2024-12-09
+232,385,Transferencia Bancaria,0.0,Completado,2022-12-17
+233,285,Efectivo contra entrega,4025.36,Completado,2022-09-17
+234,440,Tarjeta de Crédito,9567.72,Completado,2022-07-22
+235,335,Yape,0.0,Completado,2022-01-21
+236,218,Plin,0.0,Completado,2023-03-20
+237,211,Tarjeta de Débito,455.96,Pendiente,2023-12-26
+238,42,Transferencia Bancaria,0.0,Completado,2024-05-01
+239,312,Tarjeta de Débito,0.0,Completado,2023-06-04
+240,357,Tarjeta de Débito,478.28,Completado,2022-01-02
+241,337,Tarjeta de Débito,0.0,Completado,2023-12-23
+242,67,Efectivo contra entrega,423.47,Pendiente,2022-07-09
+243,244,Efectivo contra entrega,1988.58,Fallido,2024-12-31
+244,336,Transferencia Bancaria,9835.52,Completado,2022-07-21
+245,333,Plin,2793.32,Completado,2023-02-04
+246,20,Efectivo contra entrega,0.0,Completado,2023-02-03
+247,95,Tarjeta de Débito,7902.23,Completado,2022-10-30
+248,445,Transferencia Bancaria,16307.7,Completado,2022-02-21
+249,135,Efectivo contra entrega,5397.7,Reembolsado,2022-06-12
+250,403,Plin,0.0,Fallido,2023-01-05
+251,151,Tarjeta de Débito,2007.44,Completado,2023-01-26
+252,338,Tarjeta de Crédito,12588.82,Fallido,2023-01-31
+253,294,Tarjeta de Débito,0.0,Completado,2023-04-30
+254,318,Tarjeta de Débito,4555.11,Completado,2022-11-13
+255,349,Plin,0.0,Completado,2023-11-14
+256,224,Tarjeta de Débito,19197.74,Completado,2022-07-22
+257,68,Efectivo contra entrega,7788.18,Completado,2023-03-25
+258,417,Efectivo contra entrega,2442.57,Completado,2023-02-13
+259,128,Tarjeta de Débito,0.0,Completado,2022-09-03
+260,163,Transferencia Bancaria,5531.92,Completado,2022-06-26
+261,109,Transferencia Bancaria,2910.74,Fallido,2024-12-25
+262,113,Tarjeta de Crédito,0.0,Reembolsado,2022-02-10
+263,326,Yape,2181.03,Completado,2024-06-11
+264,382,Yape,0.0,Completado,2022-04-07
+265,188,Tarjeta de Débito,942.4,Completado,2022-08-15
+266,107,Tarjeta de Crédito,4415.92,Completado,2024-03-05
+267,447,Tarjeta de Crédito,229.97,Completado,2024-02-01
+268,263,Plin,0.0,Completado,2024-09-25
+269,37,Transferencia Bancaria,0.0,Completado,2024-03-07
+270,130,Yape,4070.2,Completado,2024-04-29
+271,471,Tarjeta de Crédito,0.0,Completado,2022-02-19
+272,125,Tarjeta de Débito,0.0,Completado,2024-12-11
+273,481,Tarjeta de Crédito,5094.18,Pendiente,2022-04-08
+274,118,Yape,0.0,Completado,2024-03-17
+275,34,Yape,7386.31,Reembolsado,2022-05-20
+276,181,Yape,10975.62,Completado,2023-01-01
+277,132,Yape,2407.49,Fallido,2022-09-27
+278,469,Yape,1701.9,Reembolsado,2022-12-04
+279,136,Tarjeta de Débito,0.0,Completado,2024-10-26
+280,296,Efectivo contra entrega,4274.05,Completado,2024-09-18
+281,178,Efectivo contra entrega,0.0,Completado,2023-09-07
+282,435,Efectivo contra entrega,0.0,Completado,2023-11-02
+283,378,Efectivo contra entrega,18156.14,Completado,2024-12-10
+284,122,Tarjeta de Crédito,2195.53,Reembolsado,2023-11-09
+285,9,Efectivo contra entrega,6728.58,Completado,2023-09-06
+286,192,Efectivo contra entrega,10651.75,Completado,2023-12-26
+287,41,Transferencia Bancaria,1706.68,Completado,2024-08-17
+288,249,Transferencia Bancaria,10651.75,Completado,2024-01-16
+289,254,Tarjeta de Crédito,7376.64,Completado,2022-09-19
+290,358,Efectivo contra entrega,0.0,Completado,2023-06-30
+291,384,Yape,789.09,Completado,2023-09-25
+292,105,Plin,7383.66,Reembolsado,2022-05-17
+293,29,Tarjeta de Débito,0.0,Completado,2024-01-19
+294,234,Efectivo contra entrega,6586.59,Completado,2022-08-25
+295,375,Plin,6202.14,Completado,2024-07-12
+296,399,Efectivo contra entrega,0.0,Fallido,2023-08-08
+297,388,Efectivo contra entrega,11070.58,Completado,2023-11-22
+298,11,Tarjeta de Débito,14421.3,Completado,2024-06-10
+299,482,Efectivo contra entrega,0.0,Completado,2022-12-08
+300,40,Tarjeta de Crédito,8838.0,Reembolsado,2024-10-05
+301,334,Tarjeta de Crédito,0.0,Completado,2023-01-07
+302,96,Plin,2980.2,Completado,2022-02-01
+303,409,Efectivo contra entrega,0.0,Completado,2022-11-04
+304,199,Transferencia Bancaria,0.0,Completado,2023-03-12
+305,352,Tarjeta de Débito,6854.5,Completado,2024-10-05
+306,266,Yape,0.0,Completado,2022-08-11
+307,412,Tarjeta de Débito,885.95,Completado,2023-03-07
+308,8,Tarjeta de Débito,0.0,Completado,2024-12-03
+309,232,Yape,2538.02,Completado,2023-07-24
+310,345,Efectivo contra entrega,834.72,Completado,2022-06-05
+311,462,Tarjeta de Crédito,3102.6,Completado,2023-12-11
+312,488,Tarjeta de Crédito,311.2,Completado,2022-11-01
+313,13,Yape,0.0,Completado,2023-05-14
+314,198,Tarjeta de Crédito,0.0,Completado,2024-04-29
+315,73,Efectivo contra entrega,0.0,Completado,2024-05-03
+316,56,Tarjeta de Crédito,8027.88,Completado,2023-10-25
+317,47,Yape,0.0,Completado,2024-02-29
+318,237,Yape,4123.11,Completado,2023-08-06
+319,1,Plin,0.0,Completado,2023-01-31
+320,261,Efectivo contra entrega,0.0,Fallido,2023-12-04
+321,141,Tarjeta de Débito,0.0,Reembolsado,2023-02-22
+322,478,Yape,0.0,Completado,2023-09-18
+323,18,Transferencia Bancaria,2192.14,Completado,2022-08-10
+324,305,Yape,2091.63,Fallido,2023-11-10
+325,418,Efectivo contra entrega,0.0,Completado,2023-04-20
+326,301,Tarjeta de Crédito,0.0,Completado,2022-06-10
+327,205,Efectivo contra entrega,0.0,Completado,2024-09-10
+328,80,Transferencia Bancaria,0.0,Completado,2022-07-05
+329,145,Plin,10311.15,Completado,2024-02-22
+330,116,Tarjeta de Crédito,8269.52,Reembolsado,2024-03-04
+331,87,Tarjeta de Crédito,0.0,Completado,2024-12-11
+332,97,Efectivo contra entrega,469.22,Completado,2023-09-17
+333,299,Tarjeta de Débito,7498.08,Completado,2023-07-30
+334,300,Efectivo contra entrega,3107.3,Completado,2022-07-04
+335,226,Transferencia Bancaria,1926.57,Completado,2024-03-04
+336,364,Efectivo contra entrega,8013.67,Fallido,2022-04-27
+337,231,Efectivo contra entrega,0.0,Completado,2023-03-06
+338,241,Efectivo contra entrega,0.0,Completado,2024-05-24
+339,327,Tarjeta de Débito,0.0,Completado,2024-07-08
+340,171,Transferencia Bancaria,1169.9,Completado,2023-06-03
+341,463,Tarjeta de Débito,11386.46,Fallido,2022-09-12
+342,39,Yape,0.0,Completado,2022-05-26
+343,84,Tarjeta de Débito,17354.08,Completado,2024-06-09
+344,23,Tarjeta de Crédito,1282.38,Completado,2024-09-30
+345,209,Tarjeta de Débito,0.0,Reembolsado,2023-10-09
+346,100,Yape,3167.34,Completado,2022-10-19
+347,60,Efectivo contra entrega,9329.84,Completado,2022-02-04
+348,246,Efectivo contra entrega,0.0,Completado,2024-08-20
+349,170,Plin,0.0,Completado,2022-09-28
+350,139,Tarjeta de Crédito,5623.56,Completado,2022-03-11
+351,238,Tarjeta de Débito,1610.65,Reembolsado,2023-10-02
+352,114,Efectivo contra entrega,1051.06,Completado,2023-09-12
+353,303,Efectivo contra entrega,2063.4,Completado,2025-01-03
+354,157,Tarjeta de Débito,0.0,Completado,2022-10-08
+355,43,Transferencia Bancaria,12044.83,Completado,2022-04-30
+356,7,Transferencia Bancaria,13375.39,Completado,2023-10-24
+357,470,Efectivo contra entrega,5158.5,Reembolsado,2024-10-14
+358,459,Tarjeta de Débito,8768.56,Fallido,2023-03-08
+359,427,Plin,3356.9,Completado,2024-08-14
+360,50,Tarjeta de Crédito,12225.35,Completado,2024-01-06
+361,190,Yape,6165.69,Reembolsado,2023-08-13
+362,14,Transferencia Bancaria,8345.64,Completado,2024-09-02
+363,356,Plin,990.47,Completado,2024-07-03
+364,49,Tarjeta de Crédito,1608.42,Completado,2024-05-01
+365,380,Transferencia Bancaria,1077.0,Completado,2022-05-31
+366,129,Tarjeta de Débito,1763.04,Completado,2022-10-28
+367,348,Tarjeta de Débito,4830.6,Completado,2023-07-25
+368,247,Efectivo contra entrega,4020.0,Completado,2024-08-12
+369,484,Plin,4085.94,Completado,2022-11-11
+370,138,Transferencia Bancaria,22076.9,Reembolsado,2024-08-28
+371,377,Efectivo contra entrega,597.75,Completado,2022-04-01
+372,430,Transferencia Bancaria,0.0,Completado,2022-12-18
+373,404,Tarjeta de Crédito,0.0,Reembolsado,2023-09-12
+374,176,Tarjeta de Débito,0.0,Completado,2023-03-04
+375,91,Efectivo contra entrega,6132.66,Reembolsado,2022-02-20
+376,189,Efectivo contra entrega,8777.28,Completado,2024-12-20
+377,149,Yape,13643.65,Completado,2024-03-22
+378,204,Efectivo contra entrega,8103.88,Reembolsado,2022-12-28
+379,297,Tarjeta de Crédito,0.0,Completado,2024-09-14
+380,203,Yape,6963.6,Completado,2024-03-24
+381,251,Yape,0.0,Completado,2024-07-19
+382,69,Transferencia Bancaria,3610.89,Completado,2024-09-17
+383,196,Efectivo contra entrega,8518.24,Fallido,2022-01-05
+384,268,Tarjeta de Crédito,8020.65,Completado,2022-05-09
+385,495,Efectivo contra entrega,0.0,Completado,2024-06-24
+386,195,Plin,12241.92,Completado,2023-04-23
+387,366,Transferencia Bancaria,478.28,Fallido,2022-06-17
+388,242,Tarjeta de Débito,9490.86,Completado,2024-07-03
+389,111,Efectivo contra entrega,10703.88,Completado,2022-03-24
+390,453,Efectivo contra entrega,4205.34,Fallido,2024-01-18
+391,322,Efectivo contra entrega,8229.65,Completado,2022-08-26
+392,269,Yape,0.0,Reembolsado,2022-01-02
+393,456,Efectivo contra entrega,11272.14,Completado,2022-05-21
+394,273,Tarjeta de Crédito,0.0,Completado,2023-09-16
+395,398,Tarjeta de Débito,0.0,Reembolsado,2022-07-05
+396,474,Plin,6733.85,Completado,2023-04-21
+397,214,Tarjeta de Débito,3792.32,Completado,2024-03-11
+398,390,Tarjeta de Débito,0.0,Pendiente,2022-10-12
+399,428,Yape,7347.18,Completado,2023-12-06
+400,396,Efectivo contra entrega,792.57,Completado,2024-02-11
+401,304,Yape,12451.72,Fallido,2024-11-15
+402,236,Transferencia Bancaria,12295.93,Completado,2023-10-18
+403,70,Transferencia Bancaria,2971.41,Pendiente,2022-07-18
+404,142,Tarjeta de Crédito,0.0,Completado,2024-06-18
+405,351,Tarjeta de Crédito,4201.11,Completado,2023-02-16
+406,321,Transferencia Bancaria,940.02,Completado,2023-12-11
+407,353,Plin,504.75,Completado,2024-06-02
+408,287,Efectivo contra entrega,0.0,Completado,2024-06-16
+409,101,Plin,1202.09,Completado,2024-02-13
+410,255,Tarjeta de Crédito,4589.62,Completado,2022-08-10
+411,201,Yape,0.0,Completado,2023-09-08
+412,496,Yape,0.0,Completado,2024-09-07
+413,346,Tarjeta de Crédito,0.0,Completado,2024-05-27
+414,169,Tarjeta de Débito,12282.99,Reembolsado,2024-07-02
+415,193,Tarjeta de Débito,0.0,Fallido,2024-10-13
+416,494,Tarjeta de Crédito,9899.56,Completado,2022-10-30
+417,293,Tarjeta de Crédito,7294.64,Pendiente,2022-01-18
+418,94,Efectivo contra entrega,0.0,Completado,2022-06-26
+419,331,Tarjeta de Crédito,9642.23,Completado,2022-07-23
+420,477,Plin,2556.9,Completado,2024-12-21
+421,159,Yape,7129.56,Reembolsado,2023-02-19
+422,280,Tarjeta de Débito,2209.5,Completado,2024-03-18
+423,270,Efectivo contra entrega,1848.2,Completado,2024-07-18
+424,281,Plin,0.0,Completado,2024-04-12
+425,344,Plin,0.0,Reembolsado,2023-06-05
+426,500,Plin,8521.4,Completado,2024-12-16
+427,158,Efectivo contra entrega,0.0,Completado,2022-02-22
+428,166,Tarjeta de Débito,4808.99,Pendiente,2023-11-18
+429,499,Transferencia Bancaria,9230.45,Fallido,2022-04-24
+430,369,Tarjeta de Débito,0.0,Completado,2023-09-06
+431,319,Plin,3420.3,Completado,2024-02-25
+432,442,Efectivo contra entrega,8592.57,Completado,2022-09-30
+433,248,Plin,0.0,Completado,2022-10-22
+434,167,Efectivo contra entrega,6723.6,Reembolsado,2022-11-07
+435,289,Yape,2511.1,Completado,2024-07-25
+436,328,Efectivo contra entrega,0.0,Completado,2022-03-28
+437,359,Plin,1344.72,Completado,2024-03-13
+438,429,Efectivo contra entrega,7067.13,Completado,2022-11-20
+439,419,Efectivo contra entrega,0.0,Completado,2022-07-21
+440,411,Yape,9693.12,Completado,2022-03-31
+441,306,Yape,0.0,Completado,2023-08-29
+442,21,Tarjeta de Crédito,3552.84,Completado,2022-10-04
+443,371,Efectivo contra entrega,2012.52,Completado,2024-06-15
+444,165,Transferencia Bancaria,2157.57,Completado,2024-02-19
+445,27,Transferencia Bancaria,1185.3,Completado,2024-07-20
+446,131,Tarjeta de Débito,2449.06,Completado,2023-07-16
+447,298,Yape,7454.5,Reembolsado,2024-12-14
+448,2,Yape,166.42,Reembolsado,2024-02-22
+449,240,Tarjeta de Débito,0.0,Completado,2022-04-14
+450,77,Plin,4608.97,Completado,2022-11-05
+451,374,Tarjeta de Crédito,7222.36,Completado,2023-09-26
+452,123,Plin,0.0,Completado,2022-10-13
+453,239,Tarjeta de Crédito,0.0,Completado,2024-06-27
+454,222,Tarjeta de Débito,12773.01,Completado,2023-12-01
+455,38,Yape,0.0,Completado,2023-06-12
+456,257,Tarjeta de Crédito,0.0,Completado,2024-04-28
+457,98,Efectivo contra entrega,11860.15,Completado,2023-03-06
+458,164,Plin,2089.83,Completado,2024-11-16
+459,245,Efectivo contra entrega,0.0,Completado,2024-08-11
+460,379,Efectivo contra entrega,5681.6,Completado,2022-11-04
+461,228,Efectivo contra entrega,0.0,Completado,2022-07-01
+462,197,Transferencia Bancaria,1112.73,Completado,2022-09-02
+463,383,Transferencia Bancaria,11211.92,Reembolsado,2022-02-01
+464,325,Transferencia Bancaria,5943.44,Completado,2024-03-10
+465,307,Transferencia Bancaria,4078.72,Completado,2023-09-15
+466,93,Tarjeta de Crédito,9745.99,Completado,2023-04-26
+467,140,Efectivo contra entrega,16334.75,Completado,2023-07-07
+468,485,Tarjeta de Débito,0.0,Completado,2023-10-11
+469,83,Efectivo contra entrega,0.0,Completado,2024-03-28
+470,497,Tarjeta de Crédito,0.0,Reembolsado,2022-08-31
+471,74,Efectivo contra entrega,70.08,Completado,2023-04-13
+472,119,Yape,1584.59,Completado,2024-02-23
+473,465,Yape,2898.19,Pendiente,2024-01-24
+474,282,Efectivo contra entrega,0.0,Pendiente,2022-12-23
+475,370,Efectivo contra entrega,0.0,Completado,2024-01-09
+476,46,Tarjeta de Débito,11836.97,Reembolsado,2022-07-20
+477,66,Plin,3745.32,Completado,2023-05-27
+478,148,Efectivo contra entrega,7966.72,Reembolsado,2022-03-29
+479,292,Tarjeta de Débito,4771.44,Completado,2023-12-30
+480,143,Plin,2458.04,Completado,2023-10-29
+481,179,Yape,1991.7,Completado,2022-08-12
+482,35,Transferencia Bancaria,8208.25,Reembolsado,2023-01-02
+483,58,Efectivo contra entrega,4513.2,Completado,2023-06-07
+484,392,Transferencia Bancaria,13480.95,Completado,2023-11-19
+485,491,Transferencia Bancaria,0.0,Completado,2024-07-29
+486,468,Tarjeta de Débito,0.0,Reembolsado,2023-08-17
+487,28,Yape,3740.36,Fallido,2024-02-16
+488,219,Tarjeta de Crédito,17572.77,Completado,2024-02-09
+489,309,Transferencia Bancaria,3392.2,Completado,2022-04-19
+490,361,Tarjeta de Crédito,0.0,Completado,2022-05-24
+491,45,Yape,0.0,Completado,2022-06-10
+492,290,Yape,0.0,Completado,2024-05-21
+493,408,Plin,18696.62,Completado,2023-03-03
+494,446,Yape,0.0,Completado,2022-10-12
+495,92,Tarjeta de Crédito,12555.74,Completado,2024-06-27
+496,112,Tarjeta de Débito,1087.42,Completado,2023-11-17
+497,473,Transferencia Bancaria,12133.78,Completado,2022-02-15
+498,386,Plin,2148.5,Completado,2022-08-07
+499,275,Yape,0.0,Completado,2024-11-11
+500,278,Tarjeta de Débito,2901.85,Completado,2024-01-09
